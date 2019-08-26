@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RotD</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<script type="text/javascript">
+		var step = 0;
+		transit_encounter = ["Mines", "None", "None", "None", "None", "None", "None", "None", "None", "None", "Ship"];
+		bi_encounter = ["Submarine Net", "None", "None", "None", "None", "None", "None", "Ship", "2 Ships", "Capitol Ship", "None"];
+		loc_array = ["Port", "Transit", "Transit", "British Isles", "British Isles", "British Isles", "Transit", "Transit", "Refit"];
+		function start(){
+			step += 1;
+			if (loc_array[step] == "Transit"){
+				var encounter = transit_encounter[Math.floor(Math.random()*transit_encounter.length)];
+			}
+			else if (loc_array[step] == "British Isles"){
+				var encounter = bi_encounter[Math.floor(Math.random()*bi_encounter.length)];
+			}
+			else {
+				var encounter = "";
+			};
+			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + encounter;
+			document.getElementById("text2").innerHTML = "...";
+			document.getElementById("text3").innerHTML = "...";
+			if (step == 8){
+				step = 0;
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function addRoundT(){
+			escort = ["Escort", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None"];
+			var result = escort[Math.floor(Math.random()*escort.length)];
+			document.getElementById("text2").innerHTML = result;
+		}
+		function addRoundB(){
+			escort = ["Escort", "Escort", "Escort", "Escort", "None", "None", "None", "None", "None", "None", "None"];
+			var result = escort[Math.floor(Math.random()*escort.length)];
+			document.getElementById("text3").innerHTML = result;
+		}
+	</script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+	<div class="container text-center mt-5 pt-5">
+		<h3>RotD dice</h3>
+		<p>No Encounter Multiplier</p>
+		<p>Cruiser Rules</p>
+		<p>No Q-Ships</p>
+		<button type="button" class="btn btn-secondary" onclick="start()">Aug 14' - Feb 15'</button>
+		<p id="text" class="mt-3">...</p>
+		<button type="button" class="btn btn-secondary" onclick="addRoundT()">Extra Round(Transit)</button>
+		<p id="text2" class="m-3">...</p>
+		<button type="button" class="btn btn-secondary" onclick="addRoundB()">Extra Round(British Isles)</button>
+		<p id="text3" class="m-3">...</p>
+	</div>
+</html>
