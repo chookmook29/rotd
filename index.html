@@ -22,7 +22,7 @@
 			else {
 				var encounter = "";
 			};
-			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + encounter;
+			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + encounter + " " + timeDay();
 			document.getElementById("text2").innerHTML = "...";
 			document.getElementById("text3").innerHTML = "...";
 			if (step == 8){
@@ -41,9 +41,10 @@
 			var result = escort[Math.floor(Math.random()*escort.length)];
 			document.getElementById("text3").innerHTML = result;
 		}
-	</script>
-	<script type="text/javascript">
-		
+		function timeDay(){
+			time = ["Day", "Day", "Day", "Night", "Night", "Night"];
+			return time[Math.floor(Math.random()*time.length)];
+		}
 	</script>
 </body>
 	<div class="container text-center mt-5 pt-5">
