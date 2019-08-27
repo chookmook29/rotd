@@ -22,7 +22,15 @@
 			else {
 				var encounter = "";
 			};
-			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + encounter + " " + timeDay();
+			if (encounter == "Ship") {
+				document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + sizeFreighter() + " " + timeDay();
+			}
+			else if (encounter == "2 Ships"){
+				document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + sizeFreighter() + " " + sizeFreighter() + " " + timeDay();
+			}
+			else {
+				document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + encounter + " " + timeDay();
+			}
 			document.getElementById("text2").innerHTML = "...";
 			document.getElementById("text3").innerHTML = "...";
 			if (step == 8){
@@ -44,6 +52,10 @@
 		function timeDay(){
 			time = ["Day", "Day", "Day", "Night", "Night", "Night"];
 			return time[Math.floor(Math.random()*time.length)];
+		}
+		function sizeFreighter(){
+			size = ["Small Ship", "Small Ship", "Small Ship", "Small Ship", "Small Ship", "Large Ship"];
+			return size[Math.floor(Math.random()*size.length)];
 		}
 	</script>
 </body>
