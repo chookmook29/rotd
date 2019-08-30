@@ -1,6 +1,6 @@
 var step = 0;
 transit_encounter = ["Mines", "None", "None", "None", "None", "None", "None", "None", "None", "None", "Ship"];
-bi_encounter = ["Submarine Net", "None", "None", "None", "None", "None", "None", "Ship", "2 Ships", "Capitol Ship", "None"];
+bi_encounter = ["Capital Ship", "None", "2 Ships", "None", "Ship + Escort", "2 Ships", "Ship", "None", "Ship + Escort", "2 Ships", "None"];
 loc_array = ["Port", "Transit", "Transit", "British Isles", "British Isles", "British Isles", "Transit", "Transit", "Refit"];
 random_event = false;
 
@@ -28,6 +28,9 @@ function start(){
 		else if (encounter == "2 Ships"){
 			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + sizeFreighter() + ", " + sizeFreighter() + " " + timeDay();
 		}
+		else if (encounter == "Ship + Escort"){
+			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + sizeFreighter() + " with Escort" + " " + timeDay();
+		}
 		else if (encounter == "None"){
 			document.getElementById("text").innerHTML = step + ". " + loc_array[step] + " " + timeDay();
 		}
@@ -48,16 +51,16 @@ function start(){
 }
 
 function addRoundT(){
-			escort = ["Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort"];
-			var result = escort[Math.floor(Math.random()*escort.length)];
-			document.getElementById("text2").innerHTML = result;
-		}
+	escort = ["Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort"];
+	var result = escort[Math.floor(Math.random()*escort.length)];
+	document.getElementById("text2").innerHTML = result;
+}
 
 function addRoundB(){
-			escort = ["Escort", "Escort", "Escort", "Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort"];
-			var result = escort[Math.floor(Math.random()*escort.length)];
-			document.getElementById("text3").innerHTML = result;
-		}
+	escort = ["Escort", "Escort", "Escort", "Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort", "No Escort"];
+	var result = escort[Math.floor(Math.random()*escort.length)];
+	document.getElementById("text3").innerHTML = result;
+}
 
 function timeDay(){
 			time = ["(Day)", "(Day)", "(Day)", "(Night)", "(Night)", "(Night)"];
