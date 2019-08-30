@@ -42,6 +42,7 @@ function start(){
 		}
 		document.getElementById("text2").innerHTML = "...";
 		document.getElementById("text3").innerHTML = "...";
+		document.getElementById("qship").innerHTML = "...";
 		if (step == 8){
 			step = 0;
 			random_event = false;
@@ -76,4 +77,8 @@ function dice() {
 		dice_a = [1, 2, 3, 4, 5, 6];
 		dice_b = [1, 2, 3, 4, 5, 6];
 		return dice_a[Math.floor(Math.random()*dice_a.length)] + dice_b[Math.floor(Math.random()*dice_b.length)];
-	}
+		}
+function qShip(){
+			result = ["Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship", "No Q-Ship",];
+			document.getElementById("qship").innerHTML = result[Math.floor(Math.random()*result.length)];
+}
